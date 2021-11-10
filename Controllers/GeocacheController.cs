@@ -76,7 +76,7 @@ namespace Geocaches.Controllers
             _context.Geocaches.Add(model);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetGeocachesModel", new { id = model.Id }, model);
+            return CreatedAtAction("GetGeocacheModel", new { id = model.Id }, model);
         }
 
         //Path to delete a geocache

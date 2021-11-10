@@ -80,7 +80,7 @@ namespace Geocaches.Controllers
             return Ok();
         }
 
-        [HttpPut("{id}/Activate/{date}")]
+        [HttpPut("{id}/activate/{date}")]
         public async Task<IActionResult> ActivateGeocacheItem(int id, DateTime end)
         {
             var item = _context.GeocacheItems.Find(id);
@@ -91,6 +91,42 @@ namespace Geocaches.Controllers
             return Ok();
         }
 
+        //Path to add new geocacheItems **Requirments: Must be unique name and geocache should not have more than 3 items in it**
+        [HttpPost]
+        public async Task<ActionResult<GeocacheItem>> PostGeocacheItem(GeocacheItem model)
+        {
+            //Check to see if the name is Unique **Requirement**
+            if (GeocacheItemNameExists(model.Name))
+                return BadRequest("GeocacheItem needs to be unique");
+            //Check to see if there is a geocache for the item to go into if specified
+            if (model.GeoCacheId.HasValue && !_context.Geocaches.Any(i => i.Id == model.GeoCacheId.Value))
+                return BadRequest("Geocache does not exist");
+            //Check to see if there is 3 or more items in the geocache location if specified
+            if ((await _context.GeocacheItems.CountAsync(i => i.GeoCacheId == model.GeoCacheId)) >= 3)
+                return BadRequest("Geocache is full");
 
+            _context.GeocacheItems.Add(model);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetGeocachesItem", new { id = model.Id }, model);
+        }
+        //Method for checking if name is in datasource
+        private bool GeocacheItemNameExists(String name)
+        {
+            return _context.GeocacheItems.Any(e => e.Name == name);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteGeocacheItem(int id)
+        {
+            var geocacheItem = await _context.GeocacheItems.FindAsync(id);
+            if (geocacheItem == null)
+                return NotFound();
+
+            _context.GeocacheItems.Remove(geocacheItem);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
     }
 }
