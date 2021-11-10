@@ -34,3 +34,6 @@ E:\Geo\GeoProject\Final\Geocaches\bin\Debug\net5.0\Microsoft.EntityFrameworkCore
 E:\Geo\GeoProject\Final\Geocaches\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 E:\Geo\GeoProject\Final\Geocaches\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
 E:\Geo\GeoProject\Final\Geocaches\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+E:\Geo\GeoProject\Final\Geocaches\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
+E:\Geo\GeoProject\Final\Geocaches\bin\Debug\net5.0\MySqlConnector.dll
+E:\Geo\GeoProject\Final\Geocaches\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
