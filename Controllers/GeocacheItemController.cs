@@ -14,15 +14,11 @@ namespace Geocaches.Controllers
     public class GeocacheItemController : ControllerBase
     {
         private readonly ILogger<GeocacheItemController> _logger;
+        private readonly GeocachesContext _context;
 
-        public GeocacheItemController(ILogger<GeocacheItemController> logger)
+        public GeocacheItemController(ILogger<GeocacheItemController> logger, GeocachesContext context)
         {
             _logger = logger;
-        }
-
-        private readonly GeocachesContext _context;
-        public GeocacheItemController(GeocachesContext context)
-        {
             _context = context;
         }
 
@@ -80,15 +76,33 @@ namespace Geocaches.Controllers
             return Ok();
         }
 
-        [HttpPut("{id}/activate/{date}")]
-        public async Task<IActionResult> ActivateGeocacheItem(int id, DateTime end)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutGeocacheItem(int id, GeocacheItem model)
         {
-            var item = _context.GeocacheItems.Find(id);
-            if (item == null)
+            if (id != model.Id)
                 return BadRequest("No GeocacheItems with that Id exists");
-            item.EndedAt = end;
-            await _context.SaveChangesAsync();
-            return Ok();
+            if (!GeocacheItemExists(id))
+                return NotFound();
+            //Check to make sure that the name wasn't changed to something that already exists
+            if (GeocacheItemNameExists(model.Name))
+                return BadRequest("GeocacheItem name should be unique");
+
+            _context.Entry(model).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+
+                return BadRequest("Something went wrong");
+            }
+            return NoContent();
+        }
+        private bool GeocacheItemExists(int id)
+        {
+            return _context.GeocacheItems.Any(i => i.Id == id);
         }
 
         //Path to add new geocacheItems **Requirments: Must be unique name and geocache should not have more than 3 items in it**
@@ -108,12 +122,12 @@ namespace Geocaches.Controllers
             _context.GeocacheItems.Add(model);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetGeocachesItem", new { id = model.Id }, model);
+            return CreatedAtAction("GetGeocacheItem", new { id = model.Id }, model);
         }
         //Method for checking if name is in datasource
         private bool GeocacheItemNameExists(String name)
         {
-            return _context.GeocacheItems.Any(e => e.Name == name);
+            return _context.GeocacheItems.Any(n => string.Compare(name, n.Name, true) == 0);
         }
 
         [HttpDelete("{id}")]
