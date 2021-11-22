@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Geo\\GeoProject\\Final\\Geocaches\\Geocaches.csproj": {}
+    "e:\\Geo\\GeoProject\\Final\\Geocaches\\Geocaches.csproj": {}
   },
   "projects": {
-    "E:\\Geo\\GeoProject\\Final\\Geocaches\\Geocaches.csproj": {
+    "e:\\Geo\\GeoProject\\Final\\Geocaches\\Geocaches.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Geo\\GeoProject\\Final\\Geocaches\\Geocaches.csproj",
+        "projectUniqueName": "e:\\Geo\\GeoProject\\Final\\Geocaches\\Geocaches.csproj",
         "projectName": "Geocaches",
-        "projectPath": "E:\\Geo\\GeoProject\\Final\\Geocaches\\Geocaches.csproj",
+        "projectPath": "e:\\Geo\\GeoProject\\Final\\Geocaches\\Geocaches.csproj",
         "packagesPath": "C:\\Users\\Zirkander\\.nuget\\packages\\",
-        "outputPath": "E:\\Geo\\GeoProject\\Final\\Geocaches\\obj\\",
+        "outputPath": "e:\\Geo\\GeoProject\\Final\\Geocaches\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Zirkander\\AppData\\Roaming\\NuGet\\NuGet.Config",

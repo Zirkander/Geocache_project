@@ -100,7 +100,7 @@ namespace Geocaches.Controllers
             }
             return NoContent();
         }
-        private bool GeocacheItemExists(int id)
+        public bool GeocacheItemExists(int id)
         {
             return _context.GeocacheItems.Any(i => i.Id == id);
         }

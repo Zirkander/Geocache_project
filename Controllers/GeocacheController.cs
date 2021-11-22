@@ -13,6 +13,7 @@ namespace Geocaches.Controllers
     [Route("[controller]")]
     public class GeocacheController : ControllerBase
     {
+        // private static testclass test = new testclass();
         private readonly ILogger<GeocacheController> _logger;
         private readonly GeocachesContext _context;
 
@@ -64,7 +65,7 @@ namespace Geocaches.Controllers
             return NoContent();
         }
         //Method to see if Geocache Exists or not
-        private bool GeocacheExist(int id)
+        public bool GeocacheExist(int id)
         {
             return _context.Geocaches.Any(e => e.Id == id);
         }
