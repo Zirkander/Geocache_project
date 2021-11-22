@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Geo\\GeoProject\\Final\\Geocaches\\Geocaches.csproj": {}
+    "e:\\Geo\\GeoProject\\Final\\Geocaches\\Geocaches.csproj": {}
   },
   "projects": {
-    "E:\\Geo\\GeoProject\\Final\\Geocaches\\Geocaches.csproj": {
+    "e:\\Geo\\GeoProject\\Final\\Geocaches\\Geocaches.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Geo\\GeoProject\\Final\\Geocaches\\Geocaches.csproj",
+        "projectUniqueName": "e:\\Geo\\GeoProject\\Final\\Geocaches\\Geocaches.csproj",
         "projectName": "Geocaches",
-        "projectPath": "E:\\Geo\\GeoProject\\Final\\Geocaches\\Geocaches.csproj",
+        "projectPath": "e:\\Geo\\GeoProject\\Final\\Geocaches\\Geocaches.csproj",
         "packagesPath": "C:\\Users\\Zirkander\\.nuget\\packages\\",
-        "outputPath": "E:\\Geo\\GeoProject\\Final\\Geocaches\\obj\\",
+        "outputPath": "e:\\Geo\\GeoProject\\Final\\Geocaches\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Zirkander\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Zirkander\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,17 +42,37 @@
           "dependencies": {
             "Microsoft.EntityFrameworkcore": {
               "target": "Package",
-              "version": "[5.0.5, )"
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkcore.Inmemory": {
+              "target": "Package",
+              "version": "[5.0.11, )"
             },
             "Microsoft.EntityFrameworkcore.design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.5, )"
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.0.0, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[5.0.0-alpha.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.4.3, )"
             }
           },
           "imports": [
