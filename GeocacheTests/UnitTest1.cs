@@ -1,12 +1,11 @@
-using Geocaches.Controllers;
-using Geocaches.Models;
+
 using Microsoft.EntityFrameworkCore;
-// using Microsoft.Extensions.DependencyInjection;
-// using System;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Linq;
 using Xunit;
 
-namespace GeocacheTests
+namespace Geocaches.GeocacheTests
 {
     public class UnitTest1
     {
